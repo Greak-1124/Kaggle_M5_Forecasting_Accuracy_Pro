@@ -1,4 +1,4 @@
-# Kaggle_M5_Forecasting_Accuracy_top4%-_Pro
+# Kaggle_M5_Forecasting_Accuracy_top4%_Pro
 This is a competition M5 forecasting - accuracy on kaggle. For details, please refer to the link: https://www.kaggle.com/c/m5-forecasting-accuracy/overview. This is my first time to take part in the kaggle competition. After two months of hard work, I finally ranked 172, top4% and won a silver medal.
 
 # Catalogue introduction
@@ -13,14 +13,14 @@ train_store.py: By training the dataset according to the store partition, the st
 fusion.py: The state.csv and store.csv are weighted and fused according to different weights.  
 
 # How to run
-1、Python fe.py  
-2、Python train_state.py  
-3、Python train_store.py  
-4、Python fusion.py  
+1.Python fe.py  
+2.Python train_state.py  
+3.Python train_store.py  
+4.Python fusion.py  
 You can also write the above steps as a script to run.  
 
 # Overall framework
-1、First of all, we passed the fe.py Production features, including holiday features, price features, lag features, etc.  
-2、There are three states in this data set, including CA, TX and WI. However, we only read the data of two states according to CA and WI, and use LGB for training, because we found that the effect of reading CA and WI state training is better than that of TX.  
-3、We read data from 10 stores, train them separately, and get the model of 10 stores. Finally, we forecast the sales volume of each store in 28 days.  
-4、We read the predictions of CA and WI states according to the stores of each state, and get the stores of CA_x and WI_x, respectively, and weighted fusion with the predicted stores of CA_x and WI_x to get the final result. The overall flow is shown below：  
+1.First of all, we passed the fe.py Production features, including holiday features, price features, lag features, etc.  
+2.There are three states in this data set, including CA, TX and WI. However, we only read the data of two states according to CA and WI, and use LGB for training, because we found that the effect of reading CA and WI state training is better than that of TX.  
+3.We read data from 10 stores, train them separately, and get the model of 10 stores. Finally, we forecast the sales volume of each store in 28 days.  
+4.We read the predictions of CA and WI states according to the stores of each state, and get the stores of CA_x and WI_x, respectively, and weighted fusion with the predicted stores of CA_x and WI_x to get the final result. The overall flow is shown below：  
